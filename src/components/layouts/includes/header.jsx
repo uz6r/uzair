@@ -1,7 +1,9 @@
 import _ from 'lodash'
+import { Bars3Icon } from "@heroicons/react/24/outline";
+
 const lists = ['about-me', 'projects', 'blogs']
 
-function Header () {
+function Header ({ setIsOpen }) {
   const items = lists.map(list => {
     return (
       <a
@@ -24,7 +26,13 @@ function Header () {
         <a href="/" className='font-bold antialiased tracking-wide'>uzair</a>
       </div>
       <div className="shrink-0">
-        <div className="hidden sm:block flex space-x-4">{ items }</div>
+        <div className="hidden sm:block flex space-x-4">
+          { items }
+        </div>
+        <Bars3Icon
+          class="sm:hidden h-6 text-zinc-50"
+          onClick={() => setIsOpen(true)}
+        />
       </div>
     </div>
   )
